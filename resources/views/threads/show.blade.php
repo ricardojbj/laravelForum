@@ -9,7 +9,7 @@
 
                 <div class="card-body">
                   
-                    {{ $thread->body }}
+                    {{$thread->body}}
 
                 </div>
             </div>
