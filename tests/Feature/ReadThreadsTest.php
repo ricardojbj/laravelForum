@@ -46,7 +46,7 @@ class ReadThreadsTest extends TestCase
         $reply = factory('App\Reply')
                 ->create(['thread_id' => $this->thread->id]);
         //When we visit a thread page
-        //The we should see the replies
+        //Then we should see the replies
         $this->get('/threads/'.$this->thread->id)
                 ->assertSee($reply->body); 
        
