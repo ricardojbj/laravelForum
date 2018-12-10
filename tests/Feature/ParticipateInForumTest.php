@@ -35,7 +35,7 @@ class ParticipateInForumTest extends TestCase
         $reply = factory('App\Reply')->make();
         $this->post($thread->path().'/replies', $reply->toArray());
 
-        //The their reply should be included on teh page. 
+        //The their reply should be included on the page. 
         $this->get($thread->path())
             ->assertSee($reply->body);
     }
