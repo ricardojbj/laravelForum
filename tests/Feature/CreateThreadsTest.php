@@ -11,6 +11,16 @@ class CreateThreadsTest extends TestCase
     use DatabaseMigrations;
 
     /** @test */
+    function guest_may_not_create_threads()
+    {
+        $this->expectException('Illuminate\Auth\AuthenticationException');
+
+        $thread = factory('App\Thread')->make();
+
+        $this->post('/threads', $thread->toArray());
+    }
+
+    /** @test */
     function an_authenticated_user_can_create_new_forum_threads()
     {
         //Given we have a signed in user
