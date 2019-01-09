@@ -15,7 +15,7 @@ class ParticipateInForumTest extends TestCase
     {
         $this->expectException('Illuminate\Auth\AuthenticationException');
         
-        $this->post('/threads/1/replies',[]);
+        $this->post('/threads/some-channel/1/replies',[]);
 
     }
 
@@ -33,6 +33,9 @@ class ParticipateInForumTest extends TestCase
 
         //When the user adds a reply to the thread
         $reply = factory('App\Reply')->make();
+
+       // dd($thread->path().'/replies');
+
         $this->post($thread->path().'/replies', $reply->toArray());
 
         //The their reply should be included on the page. 
