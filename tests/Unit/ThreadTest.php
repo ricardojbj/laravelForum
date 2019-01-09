@@ -51,5 +51,13 @@ class ThreadTest extends TestCase
 
     }
 
+    /** @test */
+    function a_thread_belogns_to_a_channel()
+    {
+        $thread = create('App\Thread');
+
+        $this->assertInstanceOf('App\Channel', $thread->channel);
+    }
+
 
 }
